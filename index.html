@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible navbar example</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrapper">
+      <div class="header__logo logo">
+        <p class="logo__title">Logo</p>
+      </div>
+      <nav class="header__navigation navigation">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <button class="navigation__btn" aria-controls="community" aria-expanded="false">Community</button>
+            <!-- TO DO: add visual indicator of the dropdown show/hide state -->
+            <ul class="dropdown-list" id="community">
+              <li><a class="dropdown-list__link" href="">Code of conduct</a></li>
+              <li><a class="dropdown-list__link" href="">Slack</a></li>
+              <li><a class="dropdown-list__link" href="">Twitter</a></li>
+              <li><a class="dropdown-list__link" href="">Forum</a></li>
+            </ul>
+          </li>
+          <li class="navigation__item">
+            <button class="navigation__btn" aria-controls="resources" aria-expanded="false">Resources</button>
+            <ul class="dropdown-list" id="resources">
+              <li><a class="dropdown-list__link" href="">Blog</a></li>
+              <li><a class="dropdown-list__link" href="">Documentation</a></li>
+            </ul>
+          </li>
+          <li class="navigation__item">
+            <button class="navigation__btn" aria-controls="shop" aria-expanded="false">Shop</button>
+            <ul class="dropdown-list" id="shop">
+              <li><a class="dropdown-list__link" href="">T-shirts</a></li>
+              <li><a class="dropdown-list__link" href="">Stickers</a></li>
+              <li><a class="dropdown-list__link" href="">Cups</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <script src="navbar.js"></script>
+</body>
+
+</html>
