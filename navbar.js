@@ -4,21 +4,24 @@ var navButtons = Array.prototype.slice.call(
 var navDropdowns = Array.prototype.slice.call(
   document.querySelectorAll(".navigation__btn + .dropdown-list")
 );
+var dropdownContainers = Array.prototype.slice.call(
+  document.querySelectorAll(".navigation__item")
+);
 
-function openDropdown(navBtn) {
-  var navEl = navBtn.nextElementSibling;
+function openDropdown(button) {
+  var navEl = button.nextElementSibling;
 
   if (navEl) {
-    navBtn.setAttribute("aria-expanded", "true");
+    button.setAttribute("aria-expanded", "true");
     navEl.parentElement.classList.add("is-active");
   }
 }
 
-function closeDropdown(navBtn) {
-  var navEl = navBtn.nextElementSibling;
+function closeDropdown(button) {
+  var navEl = button.nextElementSibling;
 
   if (navEl) {
-    navBtn.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-expanded", "false");
     navEl.parentElement.classList.remove("is-active");
   }
 }
@@ -67,7 +70,6 @@ function handleNavFocusOut(event) {
 }
 
 // event listeners
-
 navButtons.forEach(function (button) {
   button.addEventListener("click", handleButtonClick);
   button.addEventListener("keydown", handleButtonKeyDown);
@@ -77,12 +79,6 @@ navDropdowns.forEach(function (navDropdown) {
   navDropdown.addEventListener("keydown", handleNavKeyDown);
 });
 
-
-var dropdownContainers = Array.prototype.slice.call(
-  document.querySelectorAll(".navigation__item")
-);
-
-// focusout listener to the container of both navigation__btn and dropdown-list
 dropdownContainers.forEach(function (dropdownContainer) {
   dropdownContainer.addEventListener("focusout", handleNavFocusOut);
 });
