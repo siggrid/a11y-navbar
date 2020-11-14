@@ -56,6 +56,16 @@ body {
   padding: 0.5rem;
 }
 
+.navigation__btn::after {
+  content: "";
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  height: 0.4em;
+  margin-left: 0.75em;
+  width: 0.4em;
+  transform: rotate(45deg);
+}
+
 .navigation__btn:focus,
 .navigation__btn:hover,
 .dropdown-list__link:focus,
@@ -63,6 +73,11 @@ body {
   outline: none;
   background-color: #5c5cff;
   color: #ffffff;
+}
+
+.navigation__btn:hover::after,
+.navigation__btn:focus::after {
+  border-color: #fff;
 }
 
 .dropdown-list {
