@@ -77,25 +77,24 @@ navDropdowns.forEach(function (navDropdown) {
   navDropdown.addEventListener("keydown", handleNavKeyDown);
 });
 
-// focusout listener to the container of both navigation__btn and dropdown-list
+
 var dropdownContainers = Array.prototype.slice.call(
   document.querySelectorAll(".navigation__item")
 );
+
+// focusout listener to the container of both navigation__btn and dropdown-list
 dropdownContainers.forEach(function (dropdownContainer) {
   dropdownContainer.addEventListener("focusout", handleNavFocusOut);
 });
 
-// delay the immediate closing of dropdowns when the mouse leaves the navigation item area
-var navItems = Array.prototype.slice.call(
-  document.querySelectorAll(".navigation__item")
-);
-
-navItems.forEach(function (el, i) {
-  el.addEventListener("mouseover", function (event) {
+// delay an immediate closing of dropdowns when the mouse leaves the container area
+dropdownContainers.forEach(function (dropdownContainer) {
+  var timer;
+  dropdownContainer.addEventListener("mouseover", function (event) {
     this.className = "navigation__item is-active";
     clearTimeout(timer);
   });
-  el.addEventListener("mouseout", function (event) {
+  dropdownContainer.addEventListener("mouseout", function (event) {
     timer = setTimeout(function (event) {
       document.querySelector(".navigation__item.is-active").className =
         "navigation__item";
