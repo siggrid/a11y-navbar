@@ -86,18 +86,3 @@ var dropdownContainers = Array.prototype.slice.call(
 dropdownContainers.forEach(function (dropdownContainer) {
   dropdownContainer.addEventListener("focusout", handleNavFocusOut);
 });
-
-// delay an immediate closing of dropdowns when the mouse leaves the container area
-dropdownContainers.forEach(function (dropdownContainer) {
-  var timer;
-  dropdownContainer.addEventListener("mouseover", function (event) {
-    this.className = "navigation__item is-active";
-    clearTimeout(timer);
-  });
-  dropdownContainer.addEventListener("mouseout", function (event) {
-    timer = setTimeout(function (event) {
-      document.querySelector(".navigation__item.is-active").className =
-        "navigation__item";
-    }, 1000);
-  });
-});
