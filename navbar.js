@@ -65,7 +65,9 @@ function handleNavFocusOut(event) {
   var navContainsFocus = this.contains(event.relatedTarget);
   if (!navContainsFocus) {
     var button = this.querySelector(".navigation__btn");
-    button && closeDropdown(button);
+    if (button) {
+      closeDropdown(button);
+    }
   }
 }
 
