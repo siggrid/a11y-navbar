@@ -15,3 +15,5 @@ Website navigation is implemented as unordered lists of links wrapped in a navig
 
 
 **Screen reader users:** button has an `“aria-expanded”` attribute, its value is toggled by script from `“true”`(dropdown open) to `“false”`(dropdown closed). Screen reader announces the state of the button as “expanded” and “collapsed” respectively.
+
+Based on [Disclosure (Show/Hide) WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/examples/disclosure/disclosure-navigation.html) and [Link + Disclosure Widget Navigation by Adrian Roselli](https://adrianroselli.com/2019/06/link-disclosure-widget-navigation.html)
